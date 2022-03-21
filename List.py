@@ -76,8 +76,10 @@ class LinkedList:
                     prev_node = node
                 elif  node.value == val and  node == self.tail:
                     prev_node.next = None
-                    prev_node = None
+                    node.next = None
+                    node = None
                     self.tail = prev_node
+                    next_node = None
                     break
                 elif node.value == val:
                     next_node = node.next
@@ -85,6 +87,10 @@ class LinkedList:
                     node.next = None
                     node = None
                     node = prev_node
+                    
+                else:
+                    prev_node = node
+                    node = node.next
                     
                 else:
                     prev_node = node
