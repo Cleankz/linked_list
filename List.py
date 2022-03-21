@@ -1,5 +1,5 @@
 class Node:
-    
+
     def __init__(self, v):
         self.value = v
         self.next = None
@@ -52,8 +52,9 @@ class LinkedList:
                     break
                 elif  node.value == val and  node == self.tail:
                     prev_node.next = None
-                    prev_node = None
+                    node = None
                     self.tail = prev_node
+                    node = prev_node
                     break
                 elif  node.value == val and (node != self.tail or node != self.head):
                     prev_node.next = next_node
@@ -87,7 +88,6 @@ class LinkedList:
                     node.next = None
                     node = None
                     node = prev_node
-                    
                 else:
                     prev_node = node
                     node = node.next
@@ -127,6 +127,3 @@ class LinkedList:
             next_node = node.next
             afterNode.next = newNode
             newNode.next = next_node
-            
-            
-            
