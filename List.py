@@ -91,10 +91,6 @@ class LinkedList:
                 else:
                     prev_node = node
                     node = node.next
-                    
-                else:
-                    prev_node = node
-                    node = node.next
     def clean(self):
         node = self.head
         prev_node = node
@@ -131,3 +127,6 @@ class LinkedList:
             next_node = node.next
             afterNode.next = newNode
             newNode.next = next_node
+            
+            
+            
