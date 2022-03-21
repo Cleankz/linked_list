@@ -60,7 +60,6 @@ class LinkedList:
                     break
                 prev_node = node
                 next_node = node.next.next
-                node = node.nextext.next
                 node = node.next
         else:
             node = self.head
