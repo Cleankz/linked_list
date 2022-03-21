@@ -44,8 +44,11 @@ class LinkedList:
             node = self.head
             while node != None:
                 if  node.value == val and  node == self.head:
-                    node.next = None
+                    prev_node = node
                     self.head = node.next
+                    node = node.next
+                    prev_node.next = None
+                    break
                 elif  node.value == val and  node == self.tail:
                     prev_node.next = None
                     self.tail = prev_node
@@ -53,9 +56,11 @@ class LinkedList:
                 elif  node.value == val and (node != self.tail or node != self.head):
                     prev_node.next = next_node
                     node.next = None
+                    node = prev_node
                     break
                 prev_node = node
                 next_node = node.next.next
+                node = node.nextext.next
                 node = node.next
         else:
             node = self.head
@@ -115,8 +120,6 @@ class LinkedList:
             next_node = node.next
             afterNode.next = newNode
             newNode.next = next_node
-            
-            
 n0 = Node(123)
 n00 = Node(123)
 n000 = Node(123)
@@ -143,10 +146,13 @@ s_list.insert(n5,n0)
 s_list.insert(None,n00)
 s_list.insert(n8,n000)
 s_list.find_all(55)
-s_list.delete(88, all = False)
+print(s_list.print_all_nodes())
+s_list.delete(66, all = False)
+s_list.delete(55,all = True)
 print(s_list.print_all_nodes())
 print("-------------")
 print(s_list.len())
+s_list.clean()
 
 nf = s_list.find(55)
 if nf is not None:
