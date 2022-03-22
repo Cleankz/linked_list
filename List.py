@@ -65,20 +65,19 @@ class LinkedList:
                     prev_node = None
                     break
                 elif  node.value == val and  node == self.tail:
-                    prev_node = node
                     prev_node.next = None
                     node = None
                     self.tail = prev_node
                     node = prev_node
                     break
                 elif  node.value == val and (node != self.tail or node != self.head):
-                    prev_node = node
-                    next_node = node.next.next
+                    next_node = node.next
                     prev_node.next = next_node
                     node.next = None
                     node = None
                     node = prev_node
                     break
+                prev_node = node
                 node = node.next
         elif all is True:
             node = self.head
