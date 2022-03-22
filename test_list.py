@@ -32,7 +32,7 @@ class MyTests(unittest.TestCase):
         s_list.add_in_tail(Node(2))
         lenght = s_list.len()
         s_list.delete(2,False)
-        self.assertEqual(s_list.len() == 1000001,True)
+        self.assertEqual(s_list.len() == 1000000,True)
         s_list.delete(50,False)
         one_item_list.add_in_tail(50)
         one_item_list.delete(50,False)
