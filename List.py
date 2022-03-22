@@ -1,4 +1,5 @@
 class Node:
+    """make node"""
 
     def __init__(self, v):
         self.value = v
@@ -11,18 +12,21 @@ class LinkedList:
         self.tail = None
 
     def add_in_tail(self, item):
+        """adds a node to the end"""
         if self.head is None:
             self.head = item
         else:
             self.tail.next = item
         self.tail = item
     def print_all_nodes(self):
+        """print all nodes"""
         node = self.head
         while node is not None:
             print(node.value)
             node = node.next
 
     def find(self, val):
+        """finds a node by value"""
         node = self.head
         while node is not None:
             if node.value == val:
@@ -31,6 +35,7 @@ class LinkedList:
         return None
 
     def find_all(self, val):
+        """finds all nodes by value"""
         result = []
         node = self.head
         while node is not None:
@@ -40,6 +45,7 @@ class LinkedList:
         return result
 
     def delete(self, val, all=False):
+        """if all is False - delete one node by value, else delete all nodes """
         if all is False:
             node = self.head
             while node is not None:
@@ -94,6 +100,7 @@ class LinkedList:
                     prev_node = node
                     node = node.next
     def clean(self):
+        """clears all variables"""
         node = self.head
         prev_node = node
         while node is not None:
@@ -109,14 +116,16 @@ class LinkedList:
             prev_node = node
 
     def len(self):
-        lenght = 0
+        """prints len of list"""
+        len_t = 0
         node = self.head
         while node is not None:
-            lenght +=1
+            len_t +=1
             node = node.next
-        return lenght
+        return len_t
 
     def insert(self, afterNode, newNode):
+        """inserts node into the list"""
         if afterNode is None:
             node = self.head
             newNode.next = node
