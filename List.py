@@ -38,11 +38,11 @@ class LinkedList:
                 result.append(node)
             node = node.next
         return result
-        
+
     def delete(self, val, all=False):
-        if all == False:
+        if all is False:
             node = self.head
-            while node != None:
+            while node is not None:
                 if  node.value == val and  node == self.head:
                     self.head = node.next
                     prev_node = node
@@ -51,23 +51,25 @@ class LinkedList:
                     prev_node = None
                     break
                 elif  node.value == val and  node == self.tail:
+                    prev_node = node
+                    next_node = node.next.next
                     prev_node.next = None
                     node = None
                     self.tail = prev_node
                     node = prev_node
                     break
                 elif  node.value == val and (node != self.tail or node != self.head):
+                    prev_node = node
+                    next_node = node.next.next
                     prev_node.next = next_node
                     node.next = None
                     node = None
                     node = prev_node
                     break
-                prev_node = node
-                next_node = node.next.next
                 node = node.next
         else:
             node = self.head
-            while node != None:
+            while node is not None:
                 if  node.value == val and  node == self.head:
                     prev_node = node
                     self.head = node.next
@@ -94,8 +96,8 @@ class LinkedList:
     def clean(self):
         node = self.head
         prev_node = node
-        while node != None:
-            if node.next != None:
+        while node is not None:
+            if node.next is not  None:
                 node = node.next
                 prev_node.next = None
                 prev_node.value = None
@@ -115,14 +117,14 @@ class LinkedList:
         return lenght
 
     def insert(self, afterNode, newNode):
-        if afterNode == None:
+        if afterNode is None:
             node = self.head
             newNode.next = node
             self.head = newNode
-        elif afterNode != None and afterNode == self.tail:
+        elif afterNode is not None and afterNode == self.tail:
             afterNode.next = newNode
             self.tail = newNode
-        elif afterNode != None and afterNode != self.tail:
+        elif afterNode is not None and afterNode != self.tail:
             node = afterNode
             next_node = node.next
             afterNode.next = newNode
