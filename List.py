@@ -41,6 +41,9 @@ class LinkedList:
         while node is not None:
             if node.value == val:
                 result.append(node)
+            if node == self.head and node == self.tail:
+                result.append(node)
+                break
             node = node.next
         return result
 
@@ -49,7 +52,12 @@ class LinkedList:
         if all is False:
             node = self.head
             while node is not None:
-                if  node.value == val and  node == self.head:
+                if node == self.tail and node == self.head:
+                    self.tail = None
+                    self.head = None
+                    node = None
+                    break
+                elif  node.value == val and  node == self.head:
                     self.head = node.next
                     prev_node = node
                     node = node.next
@@ -58,7 +66,6 @@ class LinkedList:
                     break
                 elif  node.value == val and  node == self.tail:
                     prev_node = node
-                    next_node = node.next.next
                     prev_node.next = None
                     node = None
                     self.tail = prev_node
@@ -73,10 +80,15 @@ class LinkedList:
                     node = prev_node
                     break
                 node = node.next
-        else:
+        elif all is True:
             node = self.head
             while node is not None:
-                if  node.value == val and  node == self.head:
+                if node == self.tail and node == self.head:
+                    self.tail = None
+                    self.head = None
+                    node = None
+                    break
+                elif  node.value == val and  node == self.head:
                     prev_node = node
                     self.head = node.next
                     node = node.next
@@ -99,6 +111,7 @@ class LinkedList:
                 else:
                     prev_node = node
                     node = node.next
+        return None
     def clean(self):
         """clears all variables"""
         node = self.head
@@ -133,8 +146,10 @@ class LinkedList:
         elif afterNode is not None and afterNode == self.tail:
             afterNode.next = newNode
             self.tail = newNode
-        elif afterNode is not None and afterNode != self.tail:
+        elif afterNode is not None and (afterNode != self.tail and afterNode != self.head):
             node = afterNode
             next_node = node.next
             afterNode.next = newNode
             newNode.next = next_node
+        else:
+            return None
