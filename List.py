@@ -139,11 +139,7 @@ class LinkedList:
 
     def insert(self, afterNode, newNode):
         """inserts node into the list"""
-        if afterNode is None:
-            node = self.head
-            newNode.next = node
-            self.head = newNode
-        elif afterNode is not None and afterNode == self.tail:
+        if afterNode is not None and afterNode == self.tail:
             afterNode.next = newNode
             self.tail = newNode
         elif afterNode is not None and (afterNode != self.tail and afterNode != self.head):
@@ -151,5 +147,9 @@ class LinkedList:
             next_node = node.next
             afterNode.next = newNode
             newNode.next = next_node
+        elif afterNode is None:
+            self.head = newNode
+            self.tail = newNode
+            node = self.head
         else:
             return None
