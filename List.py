@@ -119,13 +119,14 @@ class LinkedList:
             if node.next is not  None:
                 node = node.next
                 prev_node.next = None
-                prev_node.value = None
+                prev_node = None
             else:
                 node = node.next
                 prev_node.next = None
-                prev_node.value = None
+                prev_node = None
                 break
             prev_node = node
+        self.__init__()
 
     def len(self):
         """prints len of list"""
