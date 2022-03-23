@@ -39,13 +39,13 @@ class LinkedList:
         result = []
         node = self.head
         while node is not None:
-            if node.value == val:
-                result.append(node)
             if node == self.head and node == self.tail:
                 result.append(node)
-                break
+            elif node.value == val:
+                result.append(node)
             node = node.next
         return result
+            
 
     def delete(self, val, all=False):
         """if all is False - delete one node by value, else delete all nodes """
