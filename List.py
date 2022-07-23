@@ -11,7 +11,7 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    def add_in_tail(self, item):
+    def add_elem_in_tail(self, item): #add_in_tail - add_elem_in_tail
         """adds a node to the end"""
         if self.head is None:
             self.head = item
@@ -25,7 +25,7 @@ class LinkedList:
             print(node.value)
             node = node.next
 
-    def find(self, val):
+    def find_elem(self, val):#find - find_elem
         """finds a node by value"""
         node = self.head
         while node is not None:
@@ -34,7 +34,7 @@ class LinkedList:
             node = node.next
         return None
 
-    def find_all(self, val):
+    def find_all_elem(self, val):#find_all - find_all_elem
         """finds all nodes by value"""
         result = []
         node = self.head
@@ -47,7 +47,7 @@ class LinkedList:
         return result
             
 
-    def delete(self, val, all=False):
+    def delete_elem(self, val, all=False):#delete - delete_elem
         """if all is False - delete one node by value, else delete all nodes """
         if all is False:
             node = self.head
@@ -111,7 +111,7 @@ class LinkedList:
                     prev_node = node
                     node = node.next
         return None
-    def clean(self):
+    def clean_list(self):#clean - clean_list
         """clears all variables"""
         node = self.head
         prev_node = node
@@ -128,7 +128,7 @@ class LinkedList:
             prev_node = node
         self.__init__()
 
-    def len(self):
+    def len_of_list(self):# len - len_of_list
         """prints len of list"""
         len_t = 0
         node = self.head
@@ -137,7 +137,7 @@ class LinkedList:
             node = node.next
         return len_t
 
-    def insert(self, afterNode, newNode):
+    def insert_elem(self, afterNode, newNode):#insert_elem - insert_elem
         """inserts node into the list"""
         if afterNode is not None and afterNode == self.tail:
             afterNode.next = newNode
